@@ -3,8 +3,8 @@ package question3;
 /**
  * Classe-test AuditeurCNAMTest.
  * 
- * @author (votre nom)
- * @version (un numéro de version ou une date)
+ * @author (Kasabaki)
+ * @version (V1)
  * 
  *          Les classes-test sont documentées ici :
  *          http://junit.sourceforge.net/javadoc/junit/framework/TestCase.html
@@ -122,4 +122,22 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
         assertEquals(" nom avec accent (é devient e) ? ", "chloe_c",
             auditeur1.login());
     }
+     public void testAccentParticuleMajusculeEspace()
+    {
+        question3.AuditeurCNAM auditeur1 = new question3.AuditeurCNAM("Jéwa klp", "Rami", "147");
+        assertEquals("jewa_k_r", auditeur1.login());
+    }
+
+    public void testCaractereSpeciaux()
+    {
+        question3.AuditeurCNAM auditeur3 = new question3.AuditeurCNAM("oo@p&s", "pop", "148");
+        assertEquals("oo_p_s_p", auditeur3.login());
+    }
+    
+    
+    
+    
+    
+    
+    
 }
