@@ -1,5 +1,6 @@
 package question2;
 
+
 import question1.Circle;
 import question1.Square;
 import question1.Triangle;
@@ -19,7 +20,8 @@ public class Picture {
     private Square wall;
     private Square window;
     private Triangle roof;
-    private Circle sun;
+    private Circle sun,sunYellow;
+    private boolean laTerreEstFixe;
 
     /**
      * Constructor for objects of class Picture
@@ -50,12 +52,44 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sunYellow = new Circle();
+        sunYellow.changeColor("yellow");
+        sunYellow.moveHorizontal(10);
+        sunYellow.moveVertical(-10);
+        sunYellow.changeSize(60);
+        sunYellow.makeVisible();
     }
+    public void setLaTerreNonFixe(){
+         if (laTerreEstFixe) {
+                laTerreEstFixe = false;
+                draw();
+                
+            }
+        }
+    public void setLaTerreEstFixe(){
+         if (!laTerreEstFixe) {
+                laTerreEstFixe = true;
+                long m=100;
+                for(int i=40;i<=80;i+=40){
+                     sun.slowMoveVertical(i);
+                 try{
+                Thread.sleep(m);
+            }
+            catch(InterruptedException e){};  
+                sun.slowMoveVertical(i);
+            }
+              
+            }
+        }
+
+    
+    
 
     /**
      * Change this picture to black/white display
@@ -69,6 +103,8 @@ public class Picture {
             sun.changeColor("black");
         }
     }
+    
+    
 
     /**
      * Change this picture to use color display
