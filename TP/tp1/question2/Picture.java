@@ -65,16 +65,13 @@ public class Picture {
         sunYellow.changeSize(60);
         sunYellow.makeVisible();
     }
-    public void setLaTerreNonFixe(){
-         if (laTerreEstFixe) {
-                laTerreEstFixe = false;
-                draw();
-                
-            }
+    public void setTerreFixe(boolean b){
+         
+                laTerreEstFixe = b;              
+                        
         }
-    public void setLaTerreEstFixe(){
-         if (!laTerreEstFixe) {
-                laTerreEstFixe = true;
+    public void coucherSoleil(){
+         if (laTerreEstFixe) {
                 long m=100;
                 for(int i=40;i<=80;i+=40){
                      sun.slowMoveVertical(i);
